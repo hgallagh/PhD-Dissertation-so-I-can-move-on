@@ -14,12 +14,7 @@ In other news I'm happy when I'm not near my parents. I do not need that guilt c
 
 
 
-\title{Interview Question if someone asked me about math modeling and at the very least a skeleton for review for this course and maybe why I failed it so many times because I kept on wanting to do this complicated well written assignment with graphs, figures, and citations like how I used to edit papers but the moment it was questioned I stopped }
-\author{Hannah Gallagher}
-\date{December 2021}
-
-
-\maketitle
+\section{Interview Question if someone asked me about math modeling and at the very least a skeleton for review for this course and maybe why I failed it so many times because I kept on wanting to do this complicated well written assignment with graphs, figures, and citations like how I used to edit papers but the moment it was questioned I stopped }
 
 \section{So in terms of this trash class here is the code that I used}
 
@@ -117,6 +112,46 @@ This assignment also emphasized dynamical systems and where the steady state wou
 
 A subsequent graph that converges to equilibrium would be useful to demonstrate that. 
 
+\begin{1stlisting}
+function p = plantPopulation(gamma,sigma,alpha,beta,n,p0 )
+plantPopulation: compute population of annual plants
+ usage: p = plantPopulation(gamma,sigma,alpha,beta,n,p0);
+
+ arguments:
+   gamma - number of seeds produced per plant in August
+   sigma - fraction of seeds that survive a given winter
+   alpha - fraction of one-year-old seeds that germinate in May
+   beta - fraction of two-year-old seeds that germinate in May
+   n - total number of generations years desired
+  p0 - initial population of plants
+
+   p (n+1)x1 - vector of plant population each year
+
+ note: No error checking is performed, so if you provide inputs that don't
+ make sense, don't blame me if the outputs are weird.
+
+ author: Nathan D. Cahill
+ email: nathan.cahill@rit.edu
+ date: 3 September 2020
+
+ initialize p
+p = zeros(n+1,1);
+p(1) = p0;
+
+ loop through years, computing new values of p
+a = gamma*sigma*alpha;
+b = gamma*(sigma^2)*(1-alpha)*beta;
+p(2) = a*p(1);
+for k = 2:n
+    p(k+1) = a*p(k) + b*p(k-1);
+end
+
+end
+
+\end{1stlisting}
+
+
+
 
 \section{Fish Harvesting Logistic Growth Model}
 Where you would see this in practice. A fish farm or a fish ecosystem such as the great lakes. \\  
@@ -170,11 +205,20 @@ A demonstration of dimensional analysis. Thinking about how these models of grav
 
 \subsection{Notes on it}
 
-
+Partial fractions must be added to this. As well as the code in the compartment models this will occur at 1 :20 p.m. 
 
 
 \section{Light Thesis}
 
+This is the blue light and illumination idea. 
+
+
+Bibliography non fancy bilby way
+
+Advancing Human-Centric LED Lighting Using Na2MgPO4F:Eu2+
+Shruti Hariyani and Jakoah Brgoch
+ACS Applied Materials & Interfaces 2021 13 (14), 16669-16676
+DOI: 10.1021/acsami.1c00909
 
 \subsection{Novice Level}
 I used differential equations and basic population models to think about how light was bouncing back and forth. 
@@ -187,6 +231,10 @@ The light source \\
 The medium it was traveling in and distance \\ 
 
 the object being perceived \\ 
+
+
+
+
 
 \subsection{What was the desired outcome}
 An analysis of 
